@@ -1,5 +1,9 @@
 @import url(https://necolas.github.io/normalize.css/8.0.1/normalize.css);
 
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 .container {
     max-width: 1300px;
     margin: 0 auto;
@@ -28,6 +32,7 @@
 
 .stock-item__cover {
     flex: 0 0 30px;
+    padding-right: 15px;
 }
 
 .stock-item__cover img {
@@ -35,13 +40,13 @@
 }
 
 .stock-item__title {
-    font-size: 18px;
+    font-size: 14px;
 }
 
 .stock-item__title span {
     display: block;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 14px;
     color: #777;
     margin-top: 2px;
 }
