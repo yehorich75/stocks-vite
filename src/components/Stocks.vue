@@ -15,10 +15,13 @@
   </div>
   <div>
     <h3>Get Info</h3>
-    <select>
+    <select v-model="selected">
       <option value="" disabled>Select Company</option>
-      <option value="">{{ value.companyName }}</option>
+      <option v-for="value in stock" :key="value.stock" :value="value.description">{{ value.companyName }}</option>
     </select>
+    <div class="info">
+        {{ selected }}
+    </div>
   </div>
 </template>
 
@@ -30,13 +33,14 @@
     data() {
       return {
         stock: [],
-        errors: []
+        errors: [],
+        selected: ''
       }
     },
     created() {
       axios.get('https://financialmodelingprep.com/api/v3/profile/AAPL,NVDA,TSLA,OKTA,INTC,DOCU,GDDY,PINS,TRIP,AMZN,DAL,V,SPCE,MDB,AMD,OZON?apikey=6e30ab1eaa8a5986f14b002b47b4d02c')
-      .then(response => {
-        this.stock = response.data
+      .then(responce => {
+        this.stock = responce.data
         console.log(responce)
       })
       .catch(e => {
